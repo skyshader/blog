@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blog</title>
+  <title>Shardendu Kumar Gautam | Blog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+
+	<div class="main_content">
+		<div class="header">
+			<div class="logo">
+				<%= link_to root_path do %>
+					SHARDENDU KUMAR GAUTAM
+				<% end %>
+			</div>
+			<div class="controls">
+				<%= link_to "New Post", new_post_path %>
+				<%= link_to "Logout", new_post_path %>
+			</div>
+		</div>
+
+		<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert") %>
+		<% end %>
+
+		<%= yield %>
+	
+	</div>
+
+
+</div>
 
 </body>
 </html>
